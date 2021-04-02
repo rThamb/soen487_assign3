@@ -1,0 +1,19 @@
+
+<div class="container">
+    <div>
+        <div class="col-md-6 login-form-1">
+            <h3>NBA Fantasy League</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Email *" [formControl]="username" required />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Your Password *" [formControl]="pwd" required />
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-dark" (click)="validate()"> Sign In </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
