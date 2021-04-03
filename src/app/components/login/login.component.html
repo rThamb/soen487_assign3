@@ -1,19 +1,30 @@
-
 <div class="container">
-    <div>
-        <div class="col-md-6 login-form-1">
-            <h3>NBA Fantasy League</h3>
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Email *" [formControl]="username" required />
+    <div class="row justify-content-center">
+        <div>
+            <div class="login-form-1">
+
+                <div class="row justify-content-center">
+                    <div class="form-group">
+                        <img width="65" src="https://lh3.googleusercontent.com/proxy/635Y4Yuw83E76svZSnCsf2v953vOgL2oaHgwhaqJzHBCngimHnTttdYFqMtFkxtTO6jvDsQGv37kl0ElCWD9W1C-5g"/>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Your Password *" [formControl]="pwd" required />
-                </div>
-                <div class="form-group">
-                    <button type="button" class="btn btn-dark" (click)="validate()"> Sign In </button>
-                </div>
-            </form>
+
+                <h3>NBA Fantasy League</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Email *" [formControl]="username" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Your Password *" [formControl]="pwd" required />
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-dark" (click)="validate()"> Sign In </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
