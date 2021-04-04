@@ -7,7 +7,7 @@
                     <i class="fa fa-list-ol fa-5x"></i>
                 </div>
                 <h6 class="text-uppercase">Points</h6>
-                <h1 class="display-1">134</h1>
+                <h1 class="display-1">{{ currentTeam.totalPoints }}</h1>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
                     <i class="fa fa-users fa-5x"></i>
                 </div>
                 <h6 class="text-uppercase">Assists</h6>
-                <h1 class="display-1">125</h1>
+                <h1 class="display-1">{{ currentTeam.totalAst }}</h1>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
                     <i class="fa fa-hand-paper-o fa-5x"></i>
                 </div>
                 <h6 class="text-uppercase">Rebounds</h6>
-                <h1 class="display-1">36</h1>
+                <h1 class="display-1">{{ currentTeam.totalReb }}</h1>
             </div>
         </div>
     </div>
@@ -41,20 +41,19 @@
 <h2> Line ups </h2>
 <section id="team">
     <div class="container">
+
         <!-- NBA guard -->
         <div class="row justify-content-center">
-            <div class="col-xs-4 col-sm-4 col-md-3">
+            <div class="col-xs-4 col-sm-4 col-md-3" *ngFor="let player of currentTeam.guards">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
+                    <div class="mainflip" (click)="showPlayerPicker(player.assignedPostition)">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img width="20" class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png"
+                                    <p><img width="40" class=" img-fluid" src="{{ player.pic }}"
                                             alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <h6 class="card-title">PG</h6>
-                                    <!-- <p class="card-text">This is basic card with image on top, title, description and button.</p> -->
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <h4 class="card-title">{{ player.name }}</h4>
+                                    <h6 class="card-title">{{ player.assignedPostition }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +61,24 @@
                             <div class="card">
                                 <div class="card-body text-center mt-6">
                                     <h4 class="card-title">Player Stats</h4>
+                                    <table class="table">
 
-                                    <!-- <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p> -->
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">PTS:</th>
+                                                <td class="align-middle">{{ player.averagePoints}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">AST:</th>
+                                                <td class="align-middle">{{ player.averageAST}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">REB:</th>
+                                                <td class="align-middle">{{ player.averageREB}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div>
@@ -74,18 +89,16 @@
 
         <!-- NBA Bigs -->
         <div class="row justify-content-center">
-            <div class="col-xs-4 col-sm-4 col-md-3">
+            <div class="col-xs-4 col-sm-4 col-md-3" *ngFor="let player of currentTeam.forwards">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
+                    <div class="mainflip" (click)="showPlayerPicker(player.assignedPostition)">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img width="20" class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png"
+                                    <p><img width="40" class="img-fluid" src="{{ player.pic }}"
                                             alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <h6 class="card-title">PG</h6>
-                                    <!-- <p class="card-text">This is basic card with image on top, title, description and button.</p> -->
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <h4 class="card-title">{{ player.name }}</h4>
+                                    <h6 class="card-title">{{ player.assignedPostition }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +106,24 @@
                             <div class="card">
                                 <div class="card-body text-center mt-6">
                                     <h4 class="card-title">Player Stats</h4>
-                                    <!-- <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p> -->
+                                    <table class="table">
+
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">PTS:</th>
+                                                <td class="align-middle">{{ player.averagePoints}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">AST:</th>
+                                                <td class="align-middle">{{ player.averageAST}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">REB:</th>
+                                                <td class="align-middle">{{ player.averageREB}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div>
@@ -105,4 +135,4 @@
 </section>
 
 
-<app-player-picker></app-player-picker>
+<app-player-picker #playerPicker></app-player-picker>

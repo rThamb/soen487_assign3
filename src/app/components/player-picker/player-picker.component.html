@@ -1,21 +1,37 @@
-
 <button hidden="true" type="button" id="mymodal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 </button>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="row">
+                    <input [formControl]="searchTerm" id="playerNameSearch" type="text" (keyup)="filterByName($event)" class="search-query" style="width: 80%; height: 50px" />
+                    <button type="button" class="btn btn-primary">Swap</button>
+                </div>
+
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Player</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">PTS</th>
+                                <th scope="col">AST</th>
+                                <th scope="col">REB</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let player of activeList">
+                                <th scope="row"><img width="80" height="60" src="{{ player.pic }}"/></th>
+                                <td class="align-middle">{{ player.name }}</td>
+                                <td class="align-middle">{{ player.averagePoints }}</td>
+                                <td class="align-middle">5</td>
+                                <td class="align-middle">3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
