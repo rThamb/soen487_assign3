@@ -10,6 +10,7 @@ export interface Player{
 }
 
 export interface Team{
+    id: string,
     name: string,
     totalPoints: number,
     totalAst: number,
@@ -17,4 +18,5 @@ export interface Team{
     guards: Player[],
     forwards: Player[]
 }
+
 

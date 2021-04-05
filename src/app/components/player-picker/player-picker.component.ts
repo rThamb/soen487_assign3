@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Player, Team } from '../../models/app.models';
 import { FormControl } from '@angular/forms';
 import { Observable, of} from 'rxjs';
+import { PlayerService } from '../../services/player/player.service';
+import { TeamService } from '../../services/team/team.service';
+
 
 @Component({
   selector: 'app-player-picker',
@@ -14,12 +17,16 @@ export class PlayerPickerComponent implements OnInit {
 
   searchTerm = new FormControl();
   activeList: Player[] = [];
+
+  selectedPlayer: Player;
+  selectedElement: HTMLElement;
+ 
   private league_players: Player[];
 
   currentTeam: Team;
   currentPosition: string;
 
-  constructor() { }
+  constructor(private playerService: PlayerService, private teamService: TeamService) { }
 
   ngOnInit(): void {
     this.getPlayers().subscribe( players => {
@@ -28,8 +35,14 @@ export class PlayerPickerComponent implements OnInit {
     });
   }
 
-  showPlayerPicker(editingPosition: string){
+  showPlayerPicker(team: Team, editingPosition: string){
+    this.currentTeam = team;
     this.currentPosition = editingPosition;
+
+    this.selectedPlayer = null;
+
+    if(this.selectedElement)
+      this.selectedElement.className = "inactivePlayerSelect";
     document.getElementById('mymodal').click();
   }
 
@@ -49,24 +62,50 @@ export class PlayerPickerComponent implements OnInit {
     }
   }
 
+  setSelected(event, player: Player){
+    this.selectedPlayer = player;
+
+    if(this.selectedElement != null){
+      this.selectedElement.className = "inactivePlayerSelect";
+    }
+    this.selectedElement = (event.target.tagName != 'TR')? event.target.parentElement: event.target;
+    this.selectedElement.className = "activePlayerSelect";
+  }
+
   private getPlayers(): Observable<Player[]>{
-    let p1: Player = {
-      name: "Kyrie, Irving",
-      position: "PG",
-      averagePoints: 34,
-      pic: 'https://a.espncdn.com/i/headshots/nba/players/full/6442.png'
-    }
+    return this.playerService.getPlayers();
+  }
 
-    let p2: Player = {
-      name: "James, Harden",
-      position: "PG",
-      averagePoints: 34,
-      pic: 'https://a.espncdn.com/i/headshots/nba/players/full/6442.png'
-    }
+  swapPlayer(){
+    let done = false;
+    let players: Player[] = null;
 
-    let players = [p1, p2];
-    
-    return of(players);
+    if(this.currentPosition == 'PF' || this.currentPosition == 'C'){
+      players = this.currentTeam.forwards;
+    }else{
+      players = this.currentTeam.guards;
+    }
+    this.swapPlayerFromList(players);
+    this.teamService.editTeam(this.currentTeam);
+  }
+
+  swapPlayerFromList(players: Player[]){
+    for(let i = 0; i < players.length; i++){
+        if(players[i].assignedPostition == this.currentPosition){
+          players.splice(i, 1, this.copyPlayer(this.selectedPlayer, this.currentPosition));
+        }
+    }
+  }
+
+  copyPlayer(player: Player, position: string): Player{
+    let copy: Player = {
+      name: player.name,
+      position: player.name,
+      assignedPostition: position,
+      averagePoints: player.averagePoints,
+      pic: player.pic
+    }
+    return copy;
   }
 
 

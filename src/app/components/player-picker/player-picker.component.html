@@ -7,7 +7,7 @@
             <div class="modal-body">
                 <div class="row">
                     <input [formControl]="searchTerm" id="playerNameSearch" type="text" (keyup)="filterByName($event)" class="search-query" style="width: 80%; height: 50px" />
-                    <button type="button" class="btn btn-primary">Swap</button>
+                    <button type="button" class="btn btn-primary" (click)="swapPlayer()">Swap</button>
                 </div>
 
                 <div class="container">
@@ -22,7 +22,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let player of activeList">
+                            <tr *ngFor="let player of activeList" (click)="setSelected($event, player)">
                                 <th scope="row"><img width="80" height="60" src="{{ player.pic }}"/></th>
                                 <td class="align-middle">{{ player.name }}</td>
                                 <td class="align-middle">{{ player.averagePoints }}</td>
