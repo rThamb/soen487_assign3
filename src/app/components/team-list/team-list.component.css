@@ -138,3 +138,12 @@ body {
 .table-filter .media .summary {
 	font-size: 14px;
 }
+
+
+
+.createTeamBtn{
+	float: right;
+}
+.createTeamBtn:hover{
+	cursor: pointer;
+}

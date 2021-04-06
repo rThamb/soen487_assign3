@@ -9,6 +9,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <div class="container">
+<a class="createTeamBtn" (click)="createTeam()"> Create Team </a>
+
     <h3>My Teams</h3>
     <div>
         <section class="content">
@@ -18,7 +20,7 @@
                         <div class="table-container">
                             <table class="table table-filter">
                                 <tbody>
-                                    <tr>
+                                    <tr (click)="viewTeamDetails()">
                                         <td style="text-align: center;" colspan="2">
                                             <div>
                                                 <img width="60" src="https://images.vexels.com/media/users/3/156544/isolated/preview/82434b96bf5caa8eec0bcd1bcdd219b8-basketball-ball-icon-by-vexels.png"/>

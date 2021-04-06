@@ -1,3 +1,8 @@
+<div *ngIf="!editMode"><button (click)="toggleEditHandler()">Edit</button></div>
+<div *ngIf="editMode"><button (click)="toggleEditHandler()">Save</button></div>
+
+
+
 <h2> Team Points </h2>
 <div class="row mb-3 justify-content-center">
     <div class="col-xl-3 col-lg-1">
@@ -107,7 +112,6 @@
                                 <div class="card-body text-center mt-6">
                                     <h4 class="card-title">Player Stats</h4>
                                     <table class="table">
-
                                         <tbody>
                                             <tr>
                                                 <th scope="row">PTS:</th>
@@ -123,7 +127,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
                         </div>

@@ -13,8 +13,18 @@ export class TeamService {
     return;
   }
 
-  getTeam(): Observable<Team>{
+  getMyTeam(): Observable<Team[]>{
+    let team = this.createMockTeam();
+    let arr = [team];
+    return of(arr); 
+  }
 
+  getTeam(): Observable<Team>{
+    return of(this.createMockTeam());
+  }
+
+
+  createMockTeam(): Team{
     let p1: Player = {
       name: "Kyrie, Irving",
       position: "PG",
@@ -76,9 +86,6 @@ export class TeamService {
       totalAst: 35,
       totalReb: 50
     }
-
-    return of(team);
-
+    return team;
   }
-
 }

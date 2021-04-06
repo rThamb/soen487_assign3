@@ -85,8 +85,8 @@ export class PlayerPickerComponent implements OnInit {
     }else{
       players = this.currentTeam.guards;
     }
+    //working with the team object reference
     this.swapPlayerFromList(players);
-    this.teamService.editTeam(this.currentTeam);
   }
 
   swapPlayerFromList(players: Player[]){
