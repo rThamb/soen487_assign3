@@ -1,19 +1,9 @@
-<!-- https://bootsnipp.com/snippets/KB2bD -->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <div class="container">
-<a class="createTeamBtn" (click)="createTeam()"> Create Team </a>
+    <a class="createTeamBtn" (click)="createTeam()"> Create Team </a>
 
     <h3>My Teams</h3>
     <div>
-        <section class="content">
+        <!-- <section class="content">
             <div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -46,8 +36,86 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
+
+        <table class="table">
+
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <div style="text-align: center">
+                            <img width="80" height="80" src="{{ getTeamIcon() }}"
+                            />
+                        </div>
+                    </th>
+                    <td class="align-middle">
+                        <div>
+                            <h4>
+                                Team Name
+                                <span> Rank: 1st</span>
+                            </h4>
+                            <span>PTS: 123, AST: 123, REB: 123 </span>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation...</p> 
+    
+                        </div>
+                    </td>
+                    <td class="align-middle">
+                        <div style="text-align: right">
+                            <button> Delete </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div style="text-align: center">
+                            <img width="80" height="80" src="{{ getTeamIcon() }}"
+                            />
+                        </div>
+                    </th>
+                    <td class="align-middle">
+                        <div>
+                            <h4>
+                                Team Name
+                                <span> Rank: 1st</span>
+                            </h4>
+                            <span>PTS: 123, AST: 123, REB: 123 </span>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation...</p> 
+    
+                        </div>
+                    </td>
+                    <td class="align-middle">
+                        <div style="text-align: right">
+                            <button> Delete </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div style="text-align: center">
+                            <img width="80" height="80" src="{{ getTeamIcon() }}"
+                            />
+                        </div>
+                    </th>
+                    <td class="align-middle">
+                        <div>
+                            <h4>
+                                Team Name
+                                <span> Rank: 1st</span>
+                            </h4>
+                            <span>PTS: 123, AST: 123, REB: 123 </span>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation...</p> 
+    
+                        </div>
+                    </td>
+                    <td class="align-middle">
+                        <div style="text-align: right">
+                            <span> <i class="fa fa-trash" aria-hidden="true"></i></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
 </div>
-

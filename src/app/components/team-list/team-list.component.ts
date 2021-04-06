@@ -36,4 +36,19 @@ export class TeamListComponent implements OnInit {
   visitTeamDetailsPage(){
       this.router.navigate(['/team']);
   }
+
+  getTeamIcon(): string{
+
+    const images = [
+      'https://storage.googleapis.com/dapper-profile-icons/avatar-nba-celtics.png',
+      'https://storage.googleapis.com/dapper-profile-icons/avatar-nba-warriors.png',
+      'https://storage.googleapis.com/dapper-profile-icons/avatar-nba-lakers.png',
+      'https://storage.googleapis.com/dapper-profile-icons/avatar-nba-nets.png',
+      'https://storage.googleapis.com/dapper-profile-icons/avatar-nba-76ers.png',
+      'https://storage.googleapis.com/dapper-profile-icons/avatar-nba-knicks.png'
+    ]
+
+    let index = Math.floor(Math.random() * images.length);
+    return images[index];
+  }
 }
