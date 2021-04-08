@@ -16,16 +16,21 @@ export class TeamListComponent implements OnInit {
   constructor(private teamService: TeamService, private router: Router, private storage: StorageService) { }
 
   ngOnInit(): void {
-    this.teamService.getMyTeam().subscribe( teams => this.myTeams = teams);
+    this.teamService.getMyTeam().subscribe( 
+      teams => this.myTeams = teams
+    );
   }
 
 
   createTeam(){
    alert("Create team");
+    let blankTeam = this.teamService.createBlankTeam();
+    this.saveInLocalStorage(blankTeam);
+    this.visitTeamDetailsPage();
   }
 
-  viewTeamDetails(){
-    this.saveInLocalStorage(this.myTeams[0]);
+  viewTeamDetails(team: Team){
+    this.saveInLocalStorage(team);
     this.visitTeamDetailsPage();
   }
 

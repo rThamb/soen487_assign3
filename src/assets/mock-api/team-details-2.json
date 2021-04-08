@@ -1,0 +1,58 @@
+{
+    "data": {
+    "id": "1",
+    "name": "My Team 2",
+    "totalPoints": 1000,
+    "totalAst": 350,
+    "totalReb": 50,
+    "guards": [
+        {
+      "name": "Kyrie, Irving",
+      "position": "PG",
+      "averagePoints": 34,
+      "pic": "https://a.espncdn.com/i/headshots/nba/players/full/6442.png",
+      "assignedPostition": "PG",
+      "averageAST": 30,
+      "averageREB": 1
+    },
+    {
+      "name": "James, Harden",
+      "position": "PG",
+      "averagePoints": 34,
+      "pic": "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3992.png&w=350&h=254",
+      "assignedPostition": "SG",
+      "averageAST": 30,
+      "averageREB": 1
+    },
+    {
+      "name": "Kevin Durant",
+      "position": "PG",
+      "averagePoints": 34,
+      "pic": "https://a.espncdn.com/i/headshots/nba/players/full/6442.png",
+      "assignedPostition": "SF",
+      "averageAST": 30,
+      "averageREB": 1
+    }
+    ],
+    "forwards": [
+         {
+            "name": "Steve Adams",
+            "position": "PF",
+            "averagePoints": 34,
+            "pic": "https://a.espncdn.com/i/headshots/nba/players/full/6442.png",
+            "assignedPostition": "PF",
+            "averageAST": 30,
+            "averageREB": 1
+    },
+    {
+      "name": "Jarette Allen",
+      "position": "C",
+      "averagePoints": 34,
+      "pic": "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3992.png&w=350&h=254",
+      "assignedPostition": "C",
+      "averageAST": 30,
+      "averageREB": 1
+    }
+    ]
+}
+}

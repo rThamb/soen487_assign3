@@ -22,7 +22,10 @@ export class TeamDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.readTeamDetailsFromStorage().subscribe( team => {
-      this.currentTeam = team;
+      this.getTeam(team.id).subscribe( team => {
+        this.currentTeam = team;
+        this.saveTeamToStorage(team);
+      })
     });
   }
 
@@ -30,14 +33,18 @@ export class TeamDetailsComponent implements OnInit {
     let team = this.storage.loadTeamFromLocalStorage();
     return of(team);
   }
+  
+  saveTeamToStorage(team: Team){
+    this.storage.saveTeamToLocalStorage(team);
+  }
 
   showPlayerPicker(pos: string){
     if(this.editMode)
       this.playerPicker.showPlayerPicker(this.currentTeam, pos);
   }
 
-  getTeam(): Observable<Team>{
-    return this.teamService.getTeam();
+  getTeam(id: string): Observable<Team>{
+    return this.teamService.getTeam(id);
   }
 
 

@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "name": "My Team 1",
+            "totalPoints": 123,
+            "totalAst": 35,
+            "totalReb": 50,
+            "guards": null,
+            "forwards": null
+        },
+        {
+            "id": "2",
+            "name": "My Team 2",
+            "totalPoints": 50,
+            "totalAst": 8,
+            "totalReb": 12,
+            "guards": null,
+            "forwards": null
+        }
+    ]
+}

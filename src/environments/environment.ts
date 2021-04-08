@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base_url: 'http://localhost:4200/assets/mock-api/',
+  team_list: 'team-list.json',
+  team_details: 'team-details-{id}.json'
 };
 
 /*
