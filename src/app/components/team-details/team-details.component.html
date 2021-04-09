@@ -1,7 +1,5 @@
-<div *ngIf="!editMode"><button (click)="toggleEditHandler()">Edit</button></div>
-<div *ngIf="editMode"><button (click)="toggleEditHandler()">Save</button></div>
-
-
+<div *ngIf="!editMode"><button class="btn btn-primary" type="button" (click)="toggleEditHandler()">Edit</button></div>
+<div *ngIf="editMode"><button class="btn btn-primary" type="button" (click)="toggleEditHandler()">Save</button></div>
 
 <h2> {{ currentTeam.name }} </h2>
 <div class="row mb-3 justify-content-center">

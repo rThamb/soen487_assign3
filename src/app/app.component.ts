@@ -18,6 +18,10 @@ export class AppComponent {
     return this.auth.isLoggedIn();
   }
 
+  goToLeaderboard(){
+    alert("ASDASD");
+  }
+
   logout(){
     if(this.auth.isLoggedIn()){
       this.auth.logout();

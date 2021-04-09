@@ -1,6 +1,7 @@
 {
     "data": {
     "id": "1",
+    "owner": "JIM",
     "name": "My Team 2",
     "totalPoints": 1000,
     "totalAst": 350,

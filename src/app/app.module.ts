@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TeamListComponent } from './components/team-list/team-list.component';
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
 import { PlayerPickerComponent } from './components/player-picker/player-picker.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PlayerPickerComponent } from './components/player-picker/player-picker.
     HomeComponent,
     TeamListComponent,
     TeamDetailsComponent,
-    PlayerPickerComponent
+    PlayerPickerComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,

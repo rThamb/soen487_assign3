@@ -6,7 +6,10 @@ export const environment = {
   production: false,
   base_url: 'http://localhost:4200/assets/mock-api/',
   team_list: 'team-list.json',
-  team_details: 'team-details-{id}.json'
+  team_details: 'team-details-{id}.json',
+  league_players: 'player-list.json',
+  auth: 'https://jsonplaceholder.typicode.com/post',
+  leaderboard: 'ranks.json',
 };
 
 /*

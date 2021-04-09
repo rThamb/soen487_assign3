@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     this.auth.validateCredentials(this.username.value, this.pwd.value).subscribe(
       valid => {
         if(valid){
+
           this.goToHome();
         }else{
           alert("Failed Login");

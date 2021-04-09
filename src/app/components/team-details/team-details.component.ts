@@ -22,6 +22,8 @@ export class TeamDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.readTeamDetailsFromStorage().subscribe( team => {
+      if(team.id === "")
+        this.editMode = true;
       this.getTeam(team.id).subscribe( team => {
         this.currentTeam = team;
         this.saveTeamToStorage(team);

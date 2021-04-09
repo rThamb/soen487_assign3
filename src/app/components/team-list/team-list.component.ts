@@ -54,6 +54,10 @@ export class TeamListComponent implements OnInit {
     ]
 
     let index = Math.floor(Math.random() * images.length);
-    return images[index];
+    return images[0];
+  }
+
+  deleteTeam(id: string){
+    //alert(id);
   }
 }

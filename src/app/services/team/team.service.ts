@@ -40,6 +40,7 @@ export class TeamService {
 
     let t: Team = {
       id: obj.id,
+      owner: obj.owner,
       name: obj.name,
       totalPoints: obj.totalPoints,
       totalAst: obj.totalAst,
@@ -126,6 +127,7 @@ export class TeamService {
     let blankTeam: Team= {
       id: "",
       name: "",
+      owner: "",
       totalPoints: 0,
       totalAst: 0,
       totalReb: 0,
@@ -192,6 +194,7 @@ export class TeamService {
     
     let team: Team = {
       id: '1',
+      owner: "JIM",
       name: "My Team API",
       totalPoints: 123,
       guards: guards,
@@ -200,5 +203,24 @@ export class TeamService {
       totalReb: 50
     }
     return team;
+  }
+
+
+
+
+  getTeamGlobalRanks(){
+    const endpoint = environment.base_url + environment.leaderboard;
+
+    return this.http.get(endpoint).pipe(
+      switchMap((resp: any) => {
+          let data = resp.data;
+          let teams = [];
+          for(let i =0; i < data.length; i++){
+            let team = this.parseForTeam(data[i]);
+            teams.push(team);
+          }
+          return of(teams);
+      })
+    );
   }
 }

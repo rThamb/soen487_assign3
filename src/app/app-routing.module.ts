@@ -6,13 +6,13 @@ import { AuthGuard } from './guard/auth/auth.guard';
 
 import { HomeComponent } from './components/home/home.component';
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
-
-
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 const routes: Routes = [
     {path: 'home', component: HomeComponent, canActivate : [AuthGuard]},
     {path: 'login', component: LoginComponent},
-    {path: 'team', component: TeamDetailsComponent, canActivate : [AuthGuard]}
+    {path: 'team', component: TeamDetailsComponent, canActivate : [AuthGuard]},
+    {path: 'rank', component: LeaderboardComponent}
 ];
 
 @NgModule({

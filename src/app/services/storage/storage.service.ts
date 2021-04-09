@@ -8,6 +8,7 @@ import { Team, Player } from '../../models/app.models';
 export class StorageService {
 
   public authKey: string = "loggedin";
+  public userKey: string = "user";
   public activeTeamDetails: string = 'team';
   private keys: string[] = ['loggedin'];
 
@@ -34,6 +35,13 @@ export class StorageService {
     let s_key = this.activeTeamDetails;
     let dataJson = JSON.stringify(team);
     this.setProperty(s_key, dataJson);
+  }
+
+  readUserInfo(): any{
+
+    let jsonData = this.getProperty(this.userKey)
+    let user = JSON.parse(jsonData);
+    return user;
   }
 
   getProperty(key: string): any{

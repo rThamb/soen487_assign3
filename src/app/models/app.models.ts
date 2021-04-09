@@ -16,7 +16,8 @@ export interface Team{
     totalAst: number,
     totalReb: number,
     guards: Player[],
-    forwards: Player[]
+    forwards: Player[],
+    owner: string
 }
 
 
