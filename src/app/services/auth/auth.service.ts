@@ -17,21 +17,24 @@ export class AuthService {
   validateCredentials(user: string, pwd: string): Observable<any>{
     
     let login = {
-      user: user,
-      pwd: pwd
+      username: user,
+      password: pwd
     };
 
-    //const endpoint = environment.auth
+    const endpoint = environment.auth;
 
-    this.saveUserInState(user, "asdad1231sdt35g3");
-    this.setAsLoggedIn(true);
-    return of(true);
+    return this.http.post(endpoint, login).pipe(
+      switchMap((resp: any) => {
 
-    // return this.http.post(endpoint, login).pipe(
-    //   switchMap((resp: any) => {
-    //     return of(true);    
-    //   })
-    // );
+        if(resp.status){
+          this.saveUserInState(user, "asdad1231sdt35g3");
+          this.setAsLoggedIn(true);
+          return of(true);  
+        }else{
+          return of(false);
+        }
+      })
+    );
   }
 
   logout(){

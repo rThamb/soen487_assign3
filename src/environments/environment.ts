@@ -8,8 +8,8 @@ export const environment = {
   team_list: 'team-list.json',
   team_details: 'team-details-{id}.json',
   league_players: 'player-list.json',
-  auth: 'https://jsonplaceholder.typicode.com/post',
-  leaderboard: 'ranks.json',
+  auth: 'http://528fc24839f7.ngrok.io/users',
+  leaderboard: 'ranks.json'
 };
 
 /*
