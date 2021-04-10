@@ -23,7 +23,6 @@ export class TeamListComponent implements OnInit {
 
 
   createTeam(){
-   alert("Create team");
     let blankTeam = this.teamService.createBlankTeam();
     this.saveInLocalStorage(blankTeam);
     this.visitTeamDetailsPage();
