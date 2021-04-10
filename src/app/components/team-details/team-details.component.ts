@@ -54,7 +54,6 @@ export class TeamDetailsComponent implements OnInit {
     if(this.editMode){
       this.sendChanges()
     }else{
-      alert("Editing");
       this.editMode = true;
     }
   }
@@ -62,9 +61,7 @@ export class TeamDetailsComponent implements OnInit {
 
   private sendChanges(){
 
-    alert("Saving");
     this.editMode = false;
-  
     let request: Observable<boolean> = null;
 
     if(this.currentTeam.id){
