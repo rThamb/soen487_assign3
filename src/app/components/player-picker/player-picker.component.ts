@@ -29,13 +29,13 @@ export class PlayerPickerComponent implements OnInit {
   constructor(private playerService: PlayerService, private teamService: TeamService) { }
 
   ngOnInit(): void {
-    this.getPlayers().subscribe( players => {
-      this.league_players = players;
-      this.activeList = players;
-    });
   }
 
   showPlayerPicker(team: Team, editingPosition: string){
+
+    if(!this.league_players)
+      this.loadPlayers();
+
     this.currentTeam = team;
     this.currentPosition = editingPosition;
 
@@ -44,6 +44,15 @@ export class PlayerPickerComponent implements OnInit {
     if(this.selectedElement)
       this.selectedElement.className = "inactivePlayerSelect";
     document.getElementById('mymodal').click();
+  }
+
+  loadPlayers(){
+
+    this.getPlayers().subscribe( players => {
+      alert("Got data from backend");
+      this.league_players = players;
+      this.activeList = players;
+    });
   }
 
   filterByName(event){

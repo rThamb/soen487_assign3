@@ -27,7 +27,8 @@ export class AuthService {
       switchMap((resp: any) => {
 
         if(resp.status){
-          this.saveUserInState(user, "asdad1231sdt35g3");
+          let token = resp.data[0];
+          this.saveUserInState(user, token);
           this.setAsLoggedIn(true);
           return of(true);  
         }else{

@@ -21,6 +21,7 @@ export class TeamDetailsComponent implements OnInit {
   constructor(private teamService: TeamService, private storage: StorageService) { }
 
   ngOnInit(): void {
+    debugger;
     this.readTeamDetailsFromStorage().subscribe( team => {
       if(team.id === "")
         this.editMode = true;

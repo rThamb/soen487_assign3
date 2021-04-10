@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Team, Player } from '../../models/app.models';
 import { HttpHandlerService } from '../http/http-handler.service';  
+import { StorageService } from '../storage/storage.service';  
 import { environment } from '../../../environments/environment';
 import { switchMap } from 'rxjs/operators';
 
@@ -13,7 +14,7 @@ export class TeamService {
 
   
 
-  constructor(private http: HttpHandlerService) { }
+  constructor(private http: HttpHandlerService, private storage: StorageService) { }
 
   createTeam(team: Team): Observable<any>{
 
@@ -31,6 +32,7 @@ export class TeamService {
 
   getMyTeam(): Observable<Team[]>{
 
+    let user = this.storage.readUserInfo();
     const endpoint = environment.base_url + environment.team_list;
 
     return this.http.get(endpoint).pipe(
@@ -48,18 +50,35 @@ export class TeamService {
 
   parseForTeam(obj: any): Team{
 
+    let players = this.getPlayers(obj)
+    let user = this.storage.readUserInfo().user;
+
     let t: Team = {
       id: obj.id,
-      owner: obj.owner,
+      owner: user,
       name: obj.name,
-      totalPoints: obj.totalPoints,
-      totalAst: obj.totalAst,
-      totalReb: obj.totalReb,
-      guards: obj.guards,
-      forwards: obj.forwards
+      totalPoints: obj.totalPts,
+      totalAst: obj.totalAssists,
+      totalReb: obj.totalRebounds,
+      guards: players.guards,
+      forwards: players.forwards
     }
     return t;
   }
+
+  private getPlayers(obj: any): any{
+    let players = {
+      guards: [],
+      forwards: []
+    };
+
+    return players;
+  }
+
+  private getForwards(obj: any): Team[]{
+    return [];
+  } 
+
 
   getTeam(id): Observable<any>{
 

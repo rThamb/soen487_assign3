@@ -4,11 +4,12 @@
 
 export const environment = {
   production: false,
-  base_url: 'http://localhost:4200/assets/mock-api/',
-  team_list: 'team-list.json',
+ // base_url: 'http://localhost:4200/assets/mock-api/',http://a9879fba7706.ngrok.io/
+  base_url: 'http://localhost:4200/assets/mock-api/',//'http://a9879fba7706.ngrok.io/',
+  team_list: 'team-list.json',//'teams',
   team_details: 'team-details-{id}.json',
-  league_players: 'player-list.json',
-  auth: 'http://528fc24839f7.ngrok.io/users',
+  league_players: 'player-list.json',//'players',
+  auth: 'http://a9879fba7706.ngrok.io/users',
   leaderboard: 'ranks.json'
 };
 
