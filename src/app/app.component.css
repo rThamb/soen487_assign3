@@ -4,6 +4,12 @@ i{
     cursor: pointer;
 }
 
+.gapper {
+    margin: 10px;
+    cursor: pointer;
+}
+
+
 i:hover{
     color: #afd0e3;
 }
