@@ -6,7 +6,7 @@
 
         <table class="table">
             <tbody>
-                <tr (click)="viewTeamDetails(team)"  *ngFor="let team of myTeams">
+                <tr (click)="viewTeamDetails($event, team)"  *ngFor="let team of myTeams">
                     <th scope="row">
                         <div style="text-align: center">
                             <img width="80" height="80" src="{{ getTeamIcon() }}"
@@ -19,9 +19,7 @@
                                 {{ team.name }}
                                 <span> Rank: 1st</span>
                             </h4>
-                            <span>PTS: {{ team.totalPoints }}, AST: {{ team.totalAst }}, REB: {{ team.totalReb }}</span>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation...</p> 
-    
+                            <span>PTS: {{ team.totalPoints }}, AST: {{ team.totalAst }}, REB: {{ team.totalReb }}</span>    
                         </div>
                     </td>
                     <td class="align-middle">

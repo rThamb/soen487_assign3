@@ -52,18 +52,34 @@ export class TeamDetailsComponent implements OnInit {
 
   toggleEditHandler(){
     if(this.editMode){
-      alert("Saving");
-      this.editMode = false;
-      //api call
-      this.teamService.editTeam(this.currentTeam);
-
-      //save to local storage
-      this.storage.saveTeamToLocalStorage(this.currentTeam);
-
+      this.sendChanges()
     }else{
       alert("Editing");
       this.editMode = true;
     }
+  }
+
+
+  private sendChanges(){
+
+    alert("Saving");
+    this.editMode = false;
+  
+    let request: Observable<boolean> = null;
+
+    if(this.currentTeam.id){
+      request = this.teamService.editTeam(this.currentTeam);
+    }else{
+      request = this.teamService.createTeam(this.currentTeam);
+    }
+
+    request.subscribe( success => {
+      if(success){
+        alert("Sent to backend")
+        this.storage.saveTeamToLocalStorage(this.currentTeam);
+      }else
+        alert("Failed");
+    });
   }
 
 

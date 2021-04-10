@@ -15,8 +15,18 @@ export class TeamService {
 
   constructor(private http: HttpHandlerService) { }
 
-  editTeam(team: Team):void{
-    return;
+  createTeam(team: Team): Observable<any>{
+
+    let endpoint = environment.team_details.replace("{id}", team.id);
+    return this.http.put(endpoint, team).pipe(
+      switchMap((resp: any) => {
+          return of(resp.success);
+      })
+    );
+  }
+
+  editTeam(team: Team): Observable<boolean>{
+    return of(true);
   }
 
   getMyTeam(): Observable<Team[]>{

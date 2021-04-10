@@ -305,8 +305,10 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img width="25" alt="Logo" src="https://i.pinimg.com/originals/50/58/c4/5058c4f3aab6aa3cad67c50ceaeb0bca.gif" />
-  <span>NBA Fantasy League</span>
+  <div style="cursor: pointer;" (click)="goHome()">
+    <img width="25" alt="Logo" src="https://i.pinimg.com/originals/50/58/c4/5058c4f3aab6aa3cad67c50ceaeb0bca.gif" />
+    <span>NBA Fantasy League</span>
+  </div>
   <div class="spacer"></div>
   <div>
     <i (click)="goToLeaderboard()" class="fa fa-trophy" aria-hidden="true"></i>

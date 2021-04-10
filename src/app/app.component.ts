@@ -19,7 +19,11 @@ export class AppComponent {
   }
 
   goToLeaderboard(){
-    alert("ASDASD");
+      this.router.navigate(['/rank']);
+  }
+
+  goHome(){
+      this.router.navigate(['/home']);
   }
 
   logout(){

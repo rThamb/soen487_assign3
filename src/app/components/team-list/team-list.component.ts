@@ -29,9 +29,12 @@ export class TeamListComponent implements OnInit {
     this.visitTeamDetailsPage();
   }
 
-  viewTeamDetails(team: Team){
-    this.saveInLocalStorage(team);
-    this.visitTeamDetailsPage();
+  viewTeamDetails(event, team: Team){
+
+    if(event.target.tagName != 'I'){
+      this.saveInLocalStorage(team);
+      this.visitTeamDetailsPage();
+    }
   }
 
   private saveInLocalStorage(team: Team){
@@ -58,6 +61,16 @@ export class TeamListComponent implements OnInit {
   }
 
   deleteTeam(id: string){
-    //alert(id);
+    this.removeTeamFromList(id);
+  }
+
+  removeTeamFromList(id: string){
+    let newArr = [];
+    for(let i =0; i < this.myTeams.length; i++){
+      if(this.myTeams[i].id != id){
+        newArr.push(this.myTeams[i]);
+      }
+    }
+    this.myTeams = newArr;
   }
 }
