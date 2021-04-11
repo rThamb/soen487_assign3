@@ -8,7 +8,7 @@ export const environment = {
   base_url: 'http://localhost:8080/',
   team_list: 'teams',
   league_players: 'players',
-  auth: 'http://a9879fba7706.ngrok.io/users',
+  auth: 'users',
   leaderboard: 'ranks.json',
   team_crud: 'team'
 };

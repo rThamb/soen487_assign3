@@ -21,7 +21,7 @@ export class AuthService {
       password: pwd
     };
 
-    const endpoint = environment.auth;
+    const endpoint = environment.base_url + environment.auth;
 
     return this.http.post(endpoint, login).pipe(
       switchMap((resp: any) => {
@@ -42,6 +42,7 @@ export class AuthService {
 
     if(this.isLoggedIn()){
       this.setAsLoggedIn(false);
+      this.clearAppState();
     }
 
   }
@@ -60,6 +61,10 @@ export class AuthService {
   private saveUserInState(username: string, token: string){
     let data = JSON.stringify({user: username, token: token});
     this.storage.setProperty(this.storage.userKey, data);
+  }
+
+  private clearAppState(){
+    this.storage.clear();
   }
 
 }

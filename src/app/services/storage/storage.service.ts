@@ -51,4 +51,8 @@ export class StorageService {
   setProperty(key: string, value: any): void{
       localStorage.setItem(key, value);
   }
+
+  clear(){
+    localStorage.clear();
+  }
 }
