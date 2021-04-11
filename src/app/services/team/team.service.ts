@@ -30,7 +30,7 @@ export class TeamService {
     return of(true);
   }
 
-  getMyTeam(): Observable<Team[]>{
+  getMyTeams(): Observable<Team[]>{
 
     let user = this.storage.readUserInfo();
     const endpoint = environment.base_url + environment.team_list;
@@ -50,7 +50,7 @@ export class TeamService {
 
   parseForTeam(obj: any): Team{
 
-    let players = this.getPlayers(obj)
+    let players = this.getPlayers(obj.players)
     let user = this.storage.readUserInfo().user;
 
     let t: Team = {
@@ -66,18 +66,48 @@ export class TeamService {
     return t;
   }
 
-  private getPlayers(obj: any): any{
-    let players = {
-      guards: [],
-      forwards: []
-    };
+  private getPlayers(playersJSON: any): any{
+    let players: any = {} 
 
-    return players;
+    for(let i=0; i < playersJSON.length; i++){
+
+      let id = playersJSON[i].id.playerId;
+      let obj = playersJSON[i].player;
+      let assignedPostition = playersJSON[i].assignedPosition.toUpperCase();
+      let p: Player = {
+            name: obj.name,
+            position: obj.position,
+            averagePoints: obj.avgPts,
+            pic: obj.picture,
+            assignedPostition: assignedPostition,
+            averageAST: obj.avgAssists,
+            averageREB: obj.avgRebounds
+      }
+
+      players[assignedPostition] = p;
+    }
+
+    return this.formatPlayers(players);
   }
 
-  private getForwards(obj: any): Team[]{
-    return [];
-  } 
+  private formatPlayers(map: any){
+    
+    let guards = [];
+    let forwards = [];
+
+    guards.push(map["PG"]);
+    guards.push(map["SG"]);
+    guards.push(map["SF"]);
+
+    forwards.push(map["PF"]);
+    forwards.push(map["C"]);
+
+    return {
+      guards: guards,
+      forwards: forwards
+    }
+  }
+
 
 
   getTeam(id): Observable<any>{
@@ -85,15 +115,15 @@ export class TeamService {
     if(!id)
       return of(this.createBlankTeam());
 
-    let endpoint_part = environment.team_details.replace("{id}", id);
-
-    const endpoint = environment.base_url + endpoint_part;
-
-    return this.http.get(endpoint).pipe(
-      switchMap((resp: any) => {
-        let data = resp.data;
-        let team: Team = this.parseForTeam(data);
-        return of(team);    
+    return this.getMyTeams().pipe(
+      switchMap((myTeams: any) => {
+        
+        for(let i =0; i < myTeams.length; i++){
+          if(myTeams[i].id == id){
+            return of(myTeams[i])
+          }
+        }
+        return of();
       })
     );
   }

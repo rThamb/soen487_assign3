@@ -35,11 +35,11 @@ export class PlayerService {
     let p: Player = {
             name: obj.name,
             position: obj.position,
-            averagePoints: obj.averagePoints,
-            pic: obj.pic,
+            averagePoints: obj.avgPts,
+            pic: obj.picture,
             assignedPostition: obj.assignedPostition,
-            averageAST: obj.averageAST,
-            averageREB: obj.averageREB
+            averageAST: obj.avgAssists,
+            averageREB: obj.avgRebounds
         }
 
     return p;

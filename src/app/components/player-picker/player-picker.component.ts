@@ -49,7 +49,6 @@ export class PlayerPickerComponent implements OnInit {
   loadPlayers(){
 
     this.getPlayers().subscribe( players => {
-      alert("Got data from backend");
       this.league_players = players;
       this.activeList = players;
     });
