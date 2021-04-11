@@ -16,9 +16,20 @@ export class TeamService {
 
   constructor(private http: HttpHandlerService, private storage: StorageService) { }
 
+  deleteTeam(teamId: string): Observable<any>{
+    const endpoint = environment.base_url + environment.team_crud + "?id=" + teamId;
+
+    return this.http.delete(endpoint).pipe(
+      switchMap((resp: any) => {
+          return of(resp.status);
+      })
+    );
+  }
+
+
   createTeam(team: Team): Observable<any>{
 
-    let endpoint = environment.team_details.replace("{id}", team.id);
+    let endpoint = "";//environment.team_details.replace("{id}", team.id);
     return this.http.put(endpoint, team).pipe(
       switchMap((resp: any) => {
           return of(resp.success);
@@ -49,8 +60,11 @@ export class TeamService {
   }
 
   parseForTeam(obj: any): Team{
+    let players = undefined;
 
-    let players = this.getPlayers(obj.players)
+    if(obj.players)
+      players = this.getPlayers(obj.players);
+    
     let user = this.storage.readUserInfo().user;
 
     let t: Team = {
@@ -202,76 +216,6 @@ export class TeamService {
 
     return blankTeam;
   }
-
-
-  // createMockTeam(): Team{
-  //   let p1: Player = {
-  //     name: "Kyrie, Irving",
-  //     position: "PG",
-  //     averagePoints: 34,
-  //     pic: 'https://a.espncdn.com/i/headshots/nba/players/full/6442.png',
-  //     assignedPostition: 'PG',
-  //     averageAST: 30,
-  //     averageREB: 1
-  //   }
-
-  //   let p2: Player = {
-  //     name: "James, Harden",
-  //     position: "PG",
-  //     averagePoints: 34,
-  //     pic: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3992.png&w=350&h=254',
-  //     assignedPostition: 'SG',
-  //     averageAST: 30,
-  //     averageREB: 10
-  //   }
-
-  //   let p3: Player = {
-  //     name: "Jarette Allen",
-  //     position: "C",
-  //     averagePoints: 34,
-  //     pic: 'https://a.espncdn.com/i/headshots/nba/players/full/4066328.png',
-  //     assignedPostition: 'C',
-  //     averageAST: 1,
-  //     averageREB: 20
-  //   }
-
-  //   let p4: Player = {
-  //     name: "Stevn, Adams",
-  //     position: "PF",
-  //     averagePoints: 34,
-  //     pic: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2991235.png&w=350&h=254',
-  //     assignedPostition: 'PF',
-  //     averageAST: 3,
-  //     averageREB: 21
-  //   }
-  //    let p5: Player = {
-  //     name: "Kevin Durant",
-  //     position: "SF",
-  //     averagePoints: 34,
-  //     pic: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3202.png',
-  //     assignedPostition: 'SF',
-  //     averageAST: 30,
-  //     averageREB: 9
-  //   }
-
-  //   let guards = [p1, p2, p5];
-  //   let forwards = [p4, p3];
-    
-  //   let team: Team = {
-  //     id: '1',
-  //     owner: "JIM",
-  //     name: "My Team API",
-  //     totalPoints: 123,
-  //     guards: guards,
-  //     forwards: forwards,
-  //     totalAst: 35,
-  //     totalReb: 50
-  //   }
-  //   return team;
-  // }
-
-
-
 
   getTeamGlobalRanks(){
     const endpoint = environment.base_url + environment.leaderboard;

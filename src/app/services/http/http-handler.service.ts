@@ -29,11 +29,8 @@ export class HttpHandlerService {
   }
 
   delete(url: string): Observable<any> {
-    let res: any = {
-      success: true
-    };
-    return of(res);
-    //return this.http.post(url, data);
+    let headers = this.getHeaders();
+    return this.http.delete(url, headers);
   }
 
   private getHeaders(): any {

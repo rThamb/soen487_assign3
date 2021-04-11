@@ -60,7 +60,15 @@ export class TeamListComponent implements OnInit {
   }
 
   deleteTeam(id: string){
-    this.removeTeamFromList(id);
+    this.teamService.deleteTeam(id).subscribe( res => {
+
+      if(res)
+        this.removeTeamFromList(id);
+      else
+        alert("Delete Failed");
+
+    })
+    
   }
 
   removeTeamFromList(id: string){

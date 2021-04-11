@@ -7,10 +7,10 @@ export const environment = {
  // base_url: 'http://localhost:4200/assets/mock-api/',http://a9879fba7706.ngrok.io/
   base_url: 'http://localhost:8080/',
   team_list: 'teams',
-  team_details: 'team-details-{id}.json',
   league_players: 'players',
   auth: 'http://a9879fba7706.ngrok.io/users',
-  leaderboard: 'ranks.json'
+  leaderboard: 'ranks.json',
+  team_crud: 'team'
 };
 
 /*
