@@ -32,12 +32,11 @@ export class TeamService {
     console.log(JSON.stringify(team));
 
     let endpoint = environment.base_url + environment.team_crud;
-    // return this.http.put(endpoint, team).pipe(
-    //   switchMap((resp: any) => {
-    //       return of(resp.success);
-    //   })
-    // );
-    return of(true);
+    return this.http.put(endpoint, team).pipe(
+      switchMap((resp: any) => {
+          return of(resp.success);
+      })
+    );
   }
 
   editTeam(team: Team): Observable<boolean>{
@@ -90,7 +89,7 @@ export class TeamService {
 
       let id = playersJSON[i].id.playerId + "";
       let obj = playersJSON[i].player;
-      let assignedPosition = playersJSON[i].assignedPosition.toUpperCase();
+      let assignedPosition = (playersJSON[i].assignedPosition)? playersJSON[i].assignedPosition.toUpperCase() : "";
       let p: Player = {
             id: id,
             name: obj.name,

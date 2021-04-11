@@ -44,7 +44,7 @@
   <div class="spacer"></div>
   <div>
     <i (click)="goToLeaderboard()" class="fa fa-trophy" aria-hidden="true"></i>
-    <i (click)="logout()" class="fa fa-sign-out-alt" aria-hidden="true"></i>
+    <i *ngIf="showLogOut()" (click)="logout()" class="fa fa-sign-out-alt" aria-hidden="true"></i>
   </div>
 </div>
 

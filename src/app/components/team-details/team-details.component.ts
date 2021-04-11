@@ -5,6 +5,9 @@ import { Observable, of} from 'rxjs';
 import { TeamService } from '../../services/team/team.service';
 import { StorageService } from '../../services/storage/storage.service';
 
+import { FormControl } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-team-details',
@@ -18,15 +21,18 @@ export class TeamDetailsComponent implements OnInit {
   currentTeam: Team;
   editMode: boolean;
 
+  teamName = new FormControl();
+
+
   constructor(private teamService: TeamService, private storage: StorageService) { }
 
   ngOnInit(): void {
-    debugger;
     this.readTeamDetailsFromStorage().subscribe( team => {
       if(team.id === "")
         this.editMode = true;
       this.getTeam(team.id).subscribe( team => {
         this.currentTeam = team;
+        this.teamName.setValue(team.name);
         this.saveTeamToStorage(team);
       })
     });
@@ -64,6 +70,7 @@ export class TeamDetailsComponent implements OnInit {
 
     this.editMode = false;
     let request: Observable<boolean> = null;
+    this.currentTeam.name = this.teamName.value;
 
     if(this.currentTeam.id){
       request = this.teamService.editTeam(this.currentTeam);
