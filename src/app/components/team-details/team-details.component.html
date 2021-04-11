@@ -38,14 +38,14 @@
         <div class="row justify-content-center">
             <div class="col-xs-4 col-sm-4 col-md-3" *ngFor="let player of currentTeam.guards">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip" (click)="showPlayerPicker(player.assignedPostition)">
+                    <div class="mainflip" (click)="showPlayerPicker(player.assignedPosition)">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img width="40" class=" img-fluid" src="{{ player.pic }}"
                                             alt="card image"></p>
                                     <h4 class="card-title">{{ player.name }}</h4>
-                                    <h6 class="card-title">{{ player.assignedPostition }}</h6>
+                                    <h6 class="card-title">{{ player.assignedPosition }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -84,14 +84,14 @@
         <div class="row justify-content-center">
             <div class="col-xs-4 col-sm-4 col-md-3" *ngFor="let player of currentTeam.forwards">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip" (click)="showPlayerPicker(player.assignedPostition)">
+                    <div class="mainflip" (click)="showPlayerPicker(player.assignedPosition)">
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p><img width="40" class="img-fluid" src="{{ player.pic }}"
                                             alt="card image"></p>
                                     <h4 class="card-title">{{ player.name }}</h4>
-                                    <h6 class="card-title">{{ player.assignedPostition }}</h6>
+                                    <h6 class="card-title">{{ player.assignedPosition }}</h6>
                                 </div>
                             </div>
                         </div>

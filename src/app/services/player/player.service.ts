@@ -38,7 +38,7 @@ export class PlayerService {
             position: obj.position,
             averagePoints: obj.avgPts,
             pic: obj.picture,
-            assignedPostition: obj.assignedPostition,
+            assignedPosition: obj.assignedPosition,
             averageAST: obj.avgAssists,
             averageREB: obj.avgRebounds
         }

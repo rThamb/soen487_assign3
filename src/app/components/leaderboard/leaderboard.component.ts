@@ -43,7 +43,8 @@ export class LeaderboardComponent implements OnInit {
   private makeEntry(rank: number, team: Team, user: string){
     let teamRank = {
       rank: rank,
-      user: user,
+      user: team.owner,
+      name: team.name,
       points: team.totalPoints + team.totalAst + team.totalReb
     }
     return teamRank;

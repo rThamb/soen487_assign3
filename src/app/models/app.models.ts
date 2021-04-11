@@ -5,7 +5,7 @@ export interface Player{
     position: string;
     averagePoints: number;
     pic: string;
-    assignedPostition?: string;
+    assignedPosition?: string;
     averageAST?: number;
     averageREB?: number;
 }

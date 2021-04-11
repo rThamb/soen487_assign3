@@ -4,6 +4,7 @@
         <thead>
             <tr>
                 <th scope="col">Rank</th>
+                <th scope="col">Team Owner</th>
                 <th scope="col">Team Name</th>
                 <th scope="col">Total (PTS + AST + REB)</th>
             </tr>
@@ -12,6 +13,7 @@
             <tr *ngFor="let team of globalRanks">
                 <th scope="row" class="align-middle">{{ team.rank }}</th>
                 <td class="align-middle">{{ team.user }}</td>
+                <td class="align-middle">{{ team.name }}</td>
                 <td class="align-middle">{{ team.points }}</td>
             </tr>
         </tbody>

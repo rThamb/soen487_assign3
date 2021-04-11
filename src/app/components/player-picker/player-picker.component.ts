@@ -99,7 +99,7 @@ export class PlayerPickerComponent implements OnInit {
 
   swapPlayerFromList(players: Player[]){
     for(let i = 0; i < players.length; i++){
-        if(players[i].assignedPostition == this.currentPosition){
+        if(players[i].assignedPosition == this.currentPosition){
           players.splice(i, 1, this.copyPlayer(this.selectedPlayer, this.currentPosition));
         }
     }
@@ -110,7 +110,7 @@ export class PlayerPickerComponent implements OnInit {
       id: player.id,
       name: player.name,
       position: player.name,
-      assignedPostition: position,
+      assignedPosition: position,
       averagePoints: player.averagePoints,
       pic: player.pic
     }
