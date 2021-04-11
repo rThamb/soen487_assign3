@@ -107,6 +107,7 @@ export class PlayerPickerComponent implements OnInit {
 
   copyPlayer(player: Player, position: string): Player{
     let copy: Player = {
+      id: player.id,
       name: player.name,
       position: player.name,
       assignedPostition: position,

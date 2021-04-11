@@ -33,6 +33,7 @@ export class PlayerService {
   parsePlayer(obj: any): Player{
 
     let p: Player = {
+            id: obj.id,
             name: obj.name,
             position: obj.position,
             averagePoints: obj.avgPts,
