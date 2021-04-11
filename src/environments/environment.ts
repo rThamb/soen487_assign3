@@ -10,7 +10,8 @@ export const environment = {
   league_players: 'players',
   auth: 'users',
   leaderboard: 'leaderboard',
-  team_crud: 'team'
+  team_crud: 'team',
+  auth_logout: 'logout'
 };
 
 /*

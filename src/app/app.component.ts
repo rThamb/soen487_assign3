@@ -28,8 +28,15 @@ export class AppComponent {
 
   logout(){
     if(this.auth.isLoggedIn()){
-      this.auth.logout();
-      this.router.navigate(['/login']);
+      this.auth.logout().subscribe( logOutSuccess => {
+        if(logOutSuccess){
+          this.router.navigate(['/login']);
+        }
+        else{
+          alert("Failed to logout");
+        }
+      });
+      
     }
   }
 }
