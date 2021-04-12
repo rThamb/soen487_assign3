@@ -17,7 +17,10 @@ export class HttpHandlerService {
 
   post(url: string, data: any): Observable<any> {
     let headers = this.getHeaders();
-    return this.http.post(url, data, headers);
+    if(headers)
+      return this.http.post(url, data, headers);
+    else
+      return this.http.post(url, data);
   }
 
   put(url: string, data: any): Observable<any> {
@@ -33,6 +36,10 @@ export class HttpHandlerService {
   private getHeaders(): any {
 
     let user = this.store.readUserInfo();
+
+    if(!user)
+      return null;
+
     let token = user.token;
 
     const httpOptions = {

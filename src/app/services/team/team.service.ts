@@ -28,10 +28,8 @@ export class TeamService {
 
 
   createTeam(team: Team): Observable<any>{
-
-    console.log(JSON.stringify(team));
-
     let endpoint = environment.base_url + environment.team_crud;
+    
     return this.http.put(endpoint, team).pipe(
       switchMap((resp: any) => {
           return of(resp.status);
@@ -39,8 +37,14 @@ export class TeamService {
     );
   }
 
-  editTeam(team: Team): Observable<boolean>{
-    return of(true);
+  editTeam(team: Team): Observable<any>{
+    let endpoint = environment.base_url + environment.team_crud;
+
+    return this.http.post(endpoint, team).pipe(
+      switchMap((resp: any) => {
+          return of(resp.status);
+      })
+    );
   }
 
   getMyTeams(): Observable<Team[]>{
