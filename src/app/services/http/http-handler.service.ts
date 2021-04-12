@@ -16,16 +16,13 @@ export class HttpHandlerService {
   }
 
   post(url: string, data: any): Observable<any> {
-    return this.http.post(url, data);
+    let headers = this.getHeaders();
+    return this.http.post(url, data, headers);
   }
 
   put(url: string, data: any): Observable<any> {
-
-    let res: any = {
-      success: true
-    };
-    return of(res);
-    //return this.http.post(url, data);
+    let headers = this.getHeaders();
+    return this.http.put(url, data, headers);
   }
 
   delete(url: string): Observable<any> {

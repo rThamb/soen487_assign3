@@ -34,7 +34,7 @@ export class TeamService {
     let endpoint = environment.base_url + environment.team_crud;
     return this.http.put(endpoint, team).pipe(
       switchMap((resp: any) => {
-          return of(resp.success);
+          return of(resp.status);
       })
     );
   }
