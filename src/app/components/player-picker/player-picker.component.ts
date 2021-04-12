@@ -85,9 +85,13 @@ export class PlayerPickerComponent implements OnInit {
   }
 
   swapPlayer(){
-    let done = false;
-    let players: Player[] = null;
 
+    if(!this.checkNotDuplicate()){
+      alert("Duplicate Player cannot be added");
+      return;
+    }
+
+    let players: Player[] = null;
     if(this.currentPosition == 'PF' || this.currentPosition == 'C'){
       players = this.currentTeam.forwards;
     }else{
@@ -115,6 +119,22 @@ export class PlayerPickerComponent implements OnInit {
       pic: player.pic
     }
     return copy;
+  }
+
+  checkNotDuplicate(){
+
+    let idSelect = this.selectedPlayer.id;
+    let arr = this.currentTeam.guards;
+    return !this.playerExists(this.currentTeam.guards, idSelect) && !this.playerExists(this.currentTeam.forwards, idSelect)
+
+  }
+
+  playerExists(players, id){
+    for(let i = 0; i < players.length; i++){
+      if(players[i].id == id)
+        return true;
+    }
+    return false;
   }
 
 
