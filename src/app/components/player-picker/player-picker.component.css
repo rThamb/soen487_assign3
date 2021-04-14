@@ -12,3 +12,8 @@ tr:hover {
 .inactivePlayerSelect {
     background-color:none;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: black;
+}

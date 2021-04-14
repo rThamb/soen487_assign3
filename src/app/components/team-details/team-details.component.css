@@ -89,13 +89,8 @@
     min-height: 312px;
 }
 
-/* .backside .card a {
-    font-size: 18px;
-    color: #007b5e !important;
-} */
-
 .frontside .card .card-body img {
-    width: 130px;
+    width: 100px;
     height: 120px;
     border-radius: 50%;
 } 
