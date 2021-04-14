@@ -58,11 +58,10 @@ export class PlayerPickerComponent implements OnInit {
     if(this.searchTerm.value.length == 0){
       this.activeList = this.league_players;
     }else{
-
       let players = [];
 
       for(let i =0; i < this.activeList.length; i++){
-        if(this.activeList[i].name.startsWith(this.searchTerm.value)){
+        if(this.activeList[i].name.toLowerCase().startsWith(this.searchTerm.value.toLowerCase())){
           players.push(this.activeList[i]);
         }
       }
