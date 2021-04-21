@@ -23,3 +23,12 @@ Angular Application developed by Renuchan .T and Dimitri S.
 ## External Libraries 
 
 Please view `package.json` and `pom` for backend server.
+
+
+
+
+## Authors
+Submission for SOEN 487, Assignment 3:
+
+Renuchan Thambirajah (40059242), Dimitri Spyropoulos (40063787)
+
