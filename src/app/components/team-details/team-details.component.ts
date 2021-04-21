@@ -80,7 +80,7 @@ export class TeamDetailsComponent implements OnInit {
 
     request.subscribe( success => {
       if(success){
-        alert("Sent to backend")
+        alert("Saving")
         this.storage.saveTeamToLocalStorage(this.currentTeam);
       }else
         alert("Failed");

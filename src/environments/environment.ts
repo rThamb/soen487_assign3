@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
- // base_url: 'http://localhost:4200/assets/mock-api/',http://a9879fba7706.ngrok.io/
-  base_url: 'http://bf1c9d99f122.ngrok.io/',
+  base_url: 'http://eb9f5ebf89c0.ngrok.io/',
   team_list: 'teams',
   league_players: 'players',
   auth: 'users',
