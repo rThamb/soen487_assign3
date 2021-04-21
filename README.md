@@ -17,7 +17,7 @@ Angular Application developed by Renuchan .T and Dimitri S.
 
 5. frontend: change base_url to point to local backend in environment.ts
 
-6. run `ng serve`
+6. run `npm install` and `ng serve`
 
 
 ## External Libraries 
